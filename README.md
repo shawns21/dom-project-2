@@ -4,6 +4,9 @@
 
 This project is a Guessing Game where a player attempts to guess a winning number. The player gets hints after making a guess, which indicate how close or far they are from the winning number. The player has 5 chances to guess the winning number correctly.
 
+Here is an example of this project with CSS styling and extra credit completed:
+[Guessing Game](https://se7en-illa.github.io/guess-the-number/)
+
 ## Javascript Classes
 
 Please watch this video for important information needed to complete this project:
@@ -11,9 +14,10 @@ Please watch this video for important information needed to complete this projec
 
 ## Installation
 
-1. Clone this repository: `git clone <repo_url>`.
-2. Navigate to the project folder: `cd dom-project-2`.
-3. Install the dependencies: `npm install`.
+1. Fork this repository to make your own copy.
+2. Clone this repository: `git clone <repo_url>`.
+3. Navigate to the project folder: `cd dom-project-2`.
+4. Install the dependencies: `npm install`.
 
 ## Tasks
 
@@ -31,10 +35,6 @@ For this project, you are expected to implement the following functionalities:
    - `checkGuess`: a method that returns a string based on the player's guess and the winning number.
    - `newGame`: a method that returns a new game instance.
    - `provideHint`: a method that generates an array with a length of 3, which includes the winning number and two other random numbers.
-
-## Running Tests
-
-After implementing the functions and the Game class, run the tests to verify that your implementations are correct: `npm test`.
 
 ## Extra Credit
 
