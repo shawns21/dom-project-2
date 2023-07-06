@@ -36,6 +36,10 @@ For this project, you are expected to implement the following functionalities:
    - `newGame`: a method that returns a new game instance.
    - `provideHint`: a method that generates an array with a length of 3, which includes the winning number and two other random numbers.
 
+## Running Tests
+
+After implementing the functions and the Game class, run the tests to verify that your implementations are correct: `npm test`. You must do this BEFORE adding any event listeners to make your game functionality.
+
 ## Extra Credit
 
 After completing the basic implementation of the game, consider adding more features like a score tracker, difficulty levels, a countdown timer, or a progress bar.
