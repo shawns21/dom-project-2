@@ -6,8 +6,29 @@
     <link rel="stylesheet" href="style.css" />
     <!-- the style.css file is linked here -->
   </head>
-
   <body>
+
+    <div class="container">
+      <label for="userInput">Enter a number</label>
+      <input type="text" id="userInput">
+      <button id="submitButton" onclick="takeSubmission()">Submit</button>
+      <button id="restartButton" onclick="newGame()">Restart</button>
+    </div>
+
+    <div class="container">
+      <p id="outputBox"></p>
+    </div>
+
+    <div>
+      <p>Hint Box</p>
+      <button id="hintButton" onclick="showHints()">Click for hint</button>
+      <p id="hintBox"></p>
+    </div>
+
+    <div id="guessBox">
+      Guesses:
+    </div>
+
     <script src='js/guessing-game.js'></script>
     <!-- uncomment the script tag above when you are ready to add JavaScript to your document -->
   </body>

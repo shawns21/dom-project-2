@@ -29,11 +29,17 @@ function shuffle(arr){
 
 class Game {
 
-    playersGuess = null;
+    constructor() {
+        this.playersGuess = null;
 
-    pastGuesses = [];
+        this.pastGuesses = [];
 
-    winningNumber = generateWinningNumber();
+        this.winningNumber = generateWinningNumber();
+
+        this.hintShowing = false;
+        
+    }
+
 
     difference() {
         return Math.abs(this.playersGuess - this.winningNumber);
@@ -53,8 +59,8 @@ class Game {
     playersGuessSubmission(num) {
         this.playersGuess = num
 
-        if (this.playersGuess < 1 || this.playersGuess > 100 || typeof(this.playersGuess) != "number"){
-            throw ("That is an invalid guess.");
+        if (this.playersGuess < 1 || this.playersGuess > 100 || isNaN(this.playersGuess)) {
+            return 'Invalid guess. Please enter a number between 1 and 100.';
         }
         
         return this.checkGuess();
@@ -63,19 +69,19 @@ class Game {
 
     checkGuess() {
 
-        if (this.winningNumber === this.playersGuess){
-            return "You Win!";
-        }
-
         if (this.pastGuesses.length >= 4){
             return "You Lose.";
+        }
+
+        if (this.winningNumber === this.playersGuess){
+            return "You Win!";
         }
 
         if (this.pastGuesses.includes(this.playersGuess)){
             return "You have already guessed that number.";
         }
-
-         this.pastGuesses.push(this.playersGuess);
+        
+        this.pastGuesses.push(this.playersGuess);
 
         if (this.difference() < 10){
             return "You're burning up!";
@@ -96,21 +102,52 @@ class Game {
     
     provideHint() {
 
-        let hints = [];
+        if (!this.hintShowing){
+            
+            let hints = [];
         
-        hints.push(generateWinningNumber());
+            hints.push(generateWinningNumber());
 
-        hints.push(generateWinningNumber());
+            hints.push(generateWinningNumber());
 
-        hints.push(this.winningNumber);
+            hints.push(this.winningNumber);
 
-        shuffle(hints);
+            shuffle(hints);
 
-        return hints;
+            this.hintShowing = true;
+
+            return hints;
+        }
+
+        else{
+            return hints;
+        }
+
     }
 
 }
 
 function newGame() {
-        return new Game();
-    }
+  game = new Game();
+  document.getElementById('outputBox').innerHTML = '';
+  document.getElementById('guessBox').innerHTML = '';
+  document.getElementById('hintBox').innerHTML = '';
+}
+
+function showNum(){
+    const boxWrapper = document.getElementById("guessBox");
+    boxWrapper.textContent = game.pastGuesses.join(', ');
+}
+    
+let game = new Game();
+
+function takeSubmission(){
+    document.getElementById('outputBox').innerHTML = game.playersGuessSubmission(parseInt(document.getElementById("userInput").value));
+    showNum(document.getElementById("userInput").value); 
+    document.getElementById("userInput").value = "";
+} 
+
+
+function showHints(){ 
+    document.getElementById('hintBox').innerHTML = game.provideHint();
+}
