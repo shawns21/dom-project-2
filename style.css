@@ -2,32 +2,47 @@
 
 html{
     text-align: center;
+    font-size: 30px;
+    background-color: black;
+    color: white;
 }
 
 .container{
     padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #title {
     height: 15vh;
+    flex-direction: column;
 }
 
 #introSection{
-    background-color: yellow;
     height: 15vh;
+    flex-direction: column;
+}
+
+
+.input {
+    padding: 10px;
+}
+
+.button {
+    padding: 10px;
 }
 
 #hintSection {
-    background-color: red;
     height: 15vh;
+    flex-direction: column;
 }
 
 #outputSection {
-    background-color: green;
     height: 15vh;
+    color: red;
 }
 
 #guessSection{
-    background-color: orange;
     height: 15vh;
 }

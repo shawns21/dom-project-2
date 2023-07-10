@@ -62,16 +62,12 @@ class Game {
         if (this.playersGuess < 1 || this.playersGuess > 100 || isNaN(this.playersGuess)) {
             return 'Invalid guess. Please enter a number between 1 and 100.';
         }
-        
+
         return this.checkGuess();
         
     }
 
     checkGuess() {
-
-        if (this.pastGuesses.length >= 4){
-            return "You Lose.";
-        }
 
         if (this.winningNumber === this.playersGuess){
             return "You Win!";
@@ -79,9 +75,13 @@ class Game {
 
         if (this.pastGuesses.includes(this.playersGuess)){
             return "You have already guessed that number.";
-        }
-        
+        }         
+
         this.pastGuesses.push(this.playersGuess);
+
+        if (this.pastGuesses.length === 5){
+            return "You Lose.";
+        }
 
         if (this.difference() < 10){
             return "You're burning up!";
@@ -98,6 +98,7 @@ class Game {
         if (this.difference() < 100){
             return "You're ice cold!";
         }
+
     }
     
     provideHint() {
@@ -132,6 +133,7 @@ function newGame() {
   document.getElementById('outputBox').innerHTML = '';
   document.getElementById('guessBox').innerHTML = '';
   document.getElementById('hintBox').innerHTML = '';
+  document.getElementById("submitButton").onclick = takeSubmission;
 }
 
 function showNum(){
@@ -142,7 +144,14 @@ function showNum(){
 let game = new Game();
 
 function takeSubmission(){
-    document.getElementById('outputBox').innerHTML = game.playersGuessSubmission(parseInt(document.getElementById("userInput").value));
+
+    let response = game.playersGuessSubmission(parseInt(document.getElementById("userInput").value));
+
+    if (response === 'You Win!' || response === 'You Lose.') {
+        document.getElementById("submitButton").onclick = null;
+    }
+
+    document.getElementById('outputBox').innerHTML = response;
     showNum(document.getElementById("userInput").value); 
     document.getElementById("userInput").value = "";
 } 
