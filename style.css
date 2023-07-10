@@ -1,1 +1,33 @@
 /* Write your CSS code in this file */
+
+html{
+    text-align: center;
+}
+
+.container{
+    padding: 10px;
+}
+
+#title {
+    height: 15vh;
+}
+
+#introSection{
+    background-color: yellow;
+    height: 15vh;
+}
+
+#hintSection {
+    background-color: red;
+    height: 15vh;
+}
+
+#outputSection {
+    background-color: green;
+    height: 15vh;
+}
+
+#guessSection{
+    background-color: orange;
+    height: 15vh;
+}

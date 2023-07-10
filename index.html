@@ -8,25 +8,32 @@
   </head>
   <body>
 
-    <div class="container">
+    <div id="title" class="container">
+      NUMBER GUESSING GAME
+    </div>
+
+    <div id="introSection" class="container">
       <label for="userInput">Enter a number</label>
       <input type="text" id="userInput">
+      <br>
       <button id="submitButton" onclick="takeSubmission()">Submit</button>
       <button id="restartButton" onclick="newGame()">Restart</button>
     </div>
 
-    <div class="container">
+    <div id="outputSection" class="container">
       <p id="outputBox"></p>
     </div>
 
-    <div>
-      <p>Hint Box</p>
+    <div id="hintSection" class="container">
       <button id="hintButton" onclick="showHints()">Click for hint</button>
       <p id="hintBox"></p>
     </div>
 
-    <div id="guessBox">
-      Guesses:
+    <div id="guessSection">
+      <div class="container">
+        Guesses:
+      </div>
+      <div id="guessBox" class="container"></div>
     </div>
 
     <script src='js/guessing-game.js'></script>
